@@ -2,10 +2,18 @@
 
 This is the frontend for _Managify_ a Project management platform.
 
+## Technologies used
+
+- React
+- TypeScript
+- GraphQL
+- Apollo
+- SASS
+
 ## Dependencies
 
 - Node.js
-- TypeScript
+- Prettier
 
 ## Dev Environment
 
