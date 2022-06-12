@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client"
-import TrashIcon from "../../icons/Trash"
 import { GET_CLIENTS } from "../../queries"
+import ClientRow from "../../components/ClientRow"
 
 const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS)
 
   if (loading) return <h1>Loading..</h1>
-  if (error) return <h1>Something went wronh!</h1>
+  if (error) return <h1>Something went wrong!</h1>
 
   return (
     <div className="clients page">
@@ -23,21 +23,8 @@ const Clients = () => {
               </tr>
             </thead>
             <tbody>
-              {data.clients.map((c: any) => (
-                <tr key={c.id}>
-                  <td>{c.name}</td>
-                  <td>{c.email}</td>
-                  <td>{c.phone}</td>
-                  <td>
-                    <div
-                      role="button"
-                      aria-label="Remove"
-                      className="table__icon danger"
-                    >
-                      <TrashIcon />
-                    </div>
-                  </td>
-                </tr>
+              {data.clients.map((client: any) => (
+                <ClientRow client={client} key={client.id} />
               ))}
             </tbody>
           </table>
