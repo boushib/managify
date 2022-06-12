@@ -1,16 +1,6 @@
-import { gql, useQuery } from "@apollo/client"
+import { useQuery } from "@apollo/client"
 import TrashIcon from "../../icons/Trash"
-
-const GET_CLIENTS = gql`
-  query getClients {
-    clients {
-      id
-      name
-      email
-      phone
-    }
-  }
-`
+import { GET_CLIENTS } from "../../queries"
 
 const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS)
